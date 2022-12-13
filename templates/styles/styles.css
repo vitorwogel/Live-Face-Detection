@@ -1,0 +1,9 @@
+body{
+    background: #F8F9FA;
+}
+
+.video-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
