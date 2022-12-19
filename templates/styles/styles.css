@@ -1,9 +1,29 @@
 body{
     background: #F8F9FA;
 }
-
+.navbar{
+    background: #e5e5e5;
+}
 .video-container{
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
+}
+.video-container img{
+    border-radius: 15px;
+    border: 5px solid #51A1FF;
+    display: block;
+}
+.inner-container{
+    width: 50%;
+}
+.inner-container span{
+    display: flex;
+    align-items: center;
+}
+.inner-container span svg{
+    margin-right: 5px;
+    animation-name: circle;
+    animation-duration: infinite;
 }

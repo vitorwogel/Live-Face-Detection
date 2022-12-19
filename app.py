@@ -11,8 +11,8 @@ vitor_image = face_recognition.load_image_file("images/vitor.jpg")
 vitor_face_encoding = face_recognition.face_encodings(vitor_image)[0]
 
 # Load a second sample picture and learn how to recognize it.
-mirella_image = face_recognition.load_image_file("images/mirella.jpg")
-mirella_face_encoding = face_recognition.face_encodings(mirella_image)[0]
+messi_image = face_recognition.load_image_file("images/messi.jpg")
+messi_face_encoding = face_recognition.face_encodings(messi_image)[0]
 
 # Loading a third sample to get a more rich dataset
 neymar_image = face_recognition.load_image_file("images/neymar.jpg")
@@ -21,12 +21,12 @@ neymar_face_encoding = face_recognition.face_encodings(neymar_image)[0]
 # Create arrays of known face encodings and their names
 known_face_encodings = [
     vitor_face_encoding,
-    mirella_face_encoding,
+    messi_face_encoding,
     neymar_face_encoding
 ]
 known_face_names = [
     "Vitor",
-    "Mirella",
+    "Messi",
     "Neymar Jr."
 ]
 
