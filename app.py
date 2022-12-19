@@ -4,7 +4,7 @@ from flask import Flask, render_template, Response
 import cv2
 import face_recognition
 import numpy as np
-app=Flask(__name__)
+app = Flask(__name__, static_folder='C:\\Users\\vitor\\Documents\\Distributed Systems\\Assignment 2\\live-facial-recognition-app\\templates')
 camera = cv2.VideoCapture(0)
 # Load a sample picture and learn how to recognize it.
 vitor_image = face_recognition.load_image_file("images/vitor.jpg")
