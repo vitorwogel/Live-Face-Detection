@@ -1,11 +1,11 @@
-
-
 from flask import Flask, render_template, Response
 import cv2
 import face_recognition
 import numpy as np
+
 app = Flask(__name__, static_folder='C:\\Users\\vitor\\Documents\\Distributed Systems\\Assignment 2\\live-facial-recognition-app\\templates')
 camera = cv2.VideoCapture(0)
+
 # Load a sample picture and learn how to recognize it.
 vitor_image = face_recognition.load_image_file("images/vitor.jpg")
 vitor_face_encoding = face_recognition.face_encodings(vitor_image)[0]
@@ -24,6 +24,7 @@ known_face_encodings = [
     messi_face_encoding,
     neymar_face_encoding
 ]
+
 known_face_names = [
     "Vitor",
     "Messi",
@@ -53,6 +54,7 @@ def gen_frames():
             face_locations = face_recognition.face_locations(rgb_small_frame)
             face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
             face_names = []
+
             for face_encoding in face_encodings:
                 # See if the face is a match for the known face(s)
                 matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
@@ -65,7 +67,6 @@ def gen_frames():
 
                 face_names.append(name)
             
-
             # Display the results
             for (top, right, bottom, left), name in zip(face_locations, face_names):
                 # Scale back up face locations since the frame we detected in was scaled to 1/4 size
@@ -93,5 +94,6 @@ def index():
 @app.route('/video_feed')
 def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
 if __name__=='__main__':
     app.run(debug=True)
